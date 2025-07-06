@@ -6,6 +6,13 @@
 GET         /findByDatabase        controllers.DemoController.findByDatabase()
 GET         /                      controllers.HomeController.index()
 POST        /User                  controllers.HomeController.user()
+#User
+POST        /save                  controllers.UserController.createUser( request: Request)
+POST        /del                   controllers.UserController.deleteUser( request: Request)
+POST        /update                controllers.UserController.updateUser( request: Request)
+POST        /getUser               controllers.UserController.getUser( request: Request)
+POST        /userPagedList         controllers.UserController.userPagedList( request: Request)
 
-# Map static resources from the /public folder to the /assets URL path
+
+
 GET         /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)

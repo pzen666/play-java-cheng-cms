@@ -1,4 +1,4 @@
-package dto;
+package entity.result;
 
 public class Results<T> {
     public int code;

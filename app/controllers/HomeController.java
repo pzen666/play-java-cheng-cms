@@ -3,7 +3,7 @@ package controllers;
 import models.User;
 import play.libs.Json;
 import play.mvc.*;
-import dto.Results;
+import entity.result.Results;
 
 import java.util.List;
 

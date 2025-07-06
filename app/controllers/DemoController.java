@@ -1,6 +1,6 @@
 package controllers;
 
-import dto.Results;
+import entity.result.Results;
 import io.ebean.DB;
 import io.ebean.Database;
 import models.User;
