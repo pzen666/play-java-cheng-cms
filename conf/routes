@@ -3,16 +3,17 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET         /findByDatabase        controllers.DemoController.findByDatabase()
-GET         /                      controllers.HomeController.index()
-POST        /User                  controllers.HomeController.user()
-#User
-POST        /save                  controllers.UserController.createUser( request: Request)
-POST        /del                   controllers.UserController.deleteUser( request: Request)
-POST        /update                controllers.UserController.updateUser( request: Request)
-POST        /getUser               controllers.UserController.getUser( request: Request)
-POST        /userPagedList         controllers.UserController.userPagedList( request: Request)
+#demo测试
+GET         /findByDatabase            controllers.DemoController.findByDatabase()
+GET         /                          controllers.HomeController.index()
+POST        /User                      controllers.HomeController.user()
+#用户操作
+POST        /user/save                 controllers.UserController.createUser( request: Request)
+POST        /user/del                  controllers.UserController.deleteUser( request: Request)
+POST        /user/update               controllers.UserController.updateUser( request: Request)
+POST        /user/getUser              controllers.UserController.getUser( request: Request)
+POST        /user/userPagedList        controllers.UserController.userPagedList( request: Request)
 
 
-
-GET         /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
+#访问静态资源
+GET         /assets/*file              controllers.Assets.versioned(path="/public", file: Asset)

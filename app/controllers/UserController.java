@@ -1,6 +1,8 @@
 package controllers;
 
 import entity.PageDTO;
+import entity.WhereDTO;
+import entity.dto.UserDTO;
 import entity.result.Results;
 import io.ebean.DB;
 import jakarta.inject.Inject;
@@ -27,6 +29,7 @@ public class UserController extends Controller {
 
     /**
      * 创建用户
+     *
      * @param request
      * @return
      */
@@ -38,40 +41,49 @@ public class UserController extends Controller {
 
     /**
      * 删除用户
+     *
      * @param request
      * @return
      */
     public Result deleteUser(Http.Request request) {
-        User p = Json.fromJson(request.body().asJson(), User.class);
-        p.delete();
-        return ok(Json.toJson(Results.success(p)));
+        UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
+        User u = userRepository.deleteUser(p);
+        if (u == null){
+            return notFound(Json.toJson(Results.error("用户不存在")));
+        }
+        return ok(Json.toJson(Results.success(u)));
     }
 
     /**
      * 修改用户
+     *
      * @param request
      * @return
      */
     public Result updateUser(Http.Request request) {
-        User p = Json.fromJson(request.body().asJson(), User.class);
-        p.update();
-        return ok(Json.toJson(Results.success(p)));
+        UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
+        User u = userRepository.updateUser(p);
+        if (u == null){
+            return notFound(Json.toJson(Results.error("用户不存在")));
+        }
+        return ok(Json.toJson(Results.success(u)));
     }
 
     /**
      * 查询用户
+     *
      * @param request
      * @return
      */
     public Result getUser(Http.Request request) {
-        PageDTO p = Json.fromJson(request.body().asJson(), PageDTO.class);
-        List<User> userList = DB.find(User.class).where().eq(p.filterKeyword, p.filter).findList();
+        WhereDTO p = Json.fromJson(request.body().asJson(), WhereDTO.class);
+        List<User> userList = userRepository.getUser(p);
         return ok(Json.toJson(Results.success(userList)));
-
     }
 
     /**
      * 分页查询用户(异步查询)
+     *
      * @param request
      * @return
      */

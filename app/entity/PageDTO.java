@@ -9,10 +9,8 @@ public class PageDTO {
     public int page;
     //行数
     public int pageSize;
-    //查询值
-    public String filter;
-    //查询字段名称
-    public String filterKeyword;
+    //查询条件
+    public WhereDTO where;
     //排序字段
     public String sortBy;
     //排序方式
