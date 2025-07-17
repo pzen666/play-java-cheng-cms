@@ -1,0 +1,26 @@
+{
+	"code": 1,
+	"msg": "数据列表",
+	"page": 1,            当前页
+	"pagecount": 4360,    //页数
+	"limit": "20",        //分页条目
+	"total": 87188,          //总数
+	"list": [
+		{
+			"vod_id": 126279,            //id
+			"vod_name": "星辰变第六季",    //剧集名称
+			"type_id": 29,               //分类ID
+			"type_name": "国产动漫",        //分类名称
+			"vod_en": "xingchenbiandiliuji",  //拼音名称
+			"vod_time": "2025-07-17 13:12:49",//时间
+			"vod_remarks": "全28集",           //总集数说明
+			"vod_play_from": "wjm3u8"          //播放器
+		}
+	],
+	"class": [
+		{
+			"type_id": 1,  //分类id
+			"type_name": "电影" //分类名称
+		}
+	]
+}

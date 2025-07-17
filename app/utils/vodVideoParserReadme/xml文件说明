@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="5.1">
+	<list page="10" pagecount="4144" pagesize="20" recordcount="82867"> //当前页    总页数  分页展示条目  总条目
+		<video>
+			<last>2025-07-15 16:35:42</last>          //时间
+			<id>84013</id>                           //id
+			<tid>36</tid>                        //分类id
+			<name>
+				<![CDATA[新婚难成]]>               //剧集名称
+			</name>
+			<type>短剧</type>                      //分类名称
+			<dt>feifan,ffm3u8</dt>                   //播放器
+			<note>
+				<![CDATA[已完结]]>                      //剧集描述
+			</note>
+		</video>
+	</list>
+	<class>
+		<ty id="1">电影片</ty>  //ID 分类id  名称
+
+	</class>
+</rss>

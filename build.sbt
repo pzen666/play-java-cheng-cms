@@ -30,7 +30,8 @@ lazy val root = (project in file("."))
       "org.assertj" % "assertj-core" % "3.26.3" % Test,
       "org.mockito" % "mockito-core" % "5.18.0" % Test,
       "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1",
-//      "com.fasterxml.jackson.module" % "jackson-module-scala" % "2.14.3"
+      "org.projectlombok" % "lombok" % "1.18.38"
+      //      "com.fasterxml.jackson.module" % "jackson-module-scala" % "2.14.3"
     ),
 
     playEbeanModels := Seq("models.*"),

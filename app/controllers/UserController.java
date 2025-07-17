@@ -7,6 +7,8 @@ import entity.result.Results;
 import io.ebean.DB;
 import jakarta.inject.Inject;
 import models.User;
+import org.slf4j.LoggerFactory;
+import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -18,6 +20,8 @@ import java.util.concurrent.CompletionStage;
 
 
 public class UserController extends Controller {
+
+    private static final Logger.ALogger logger1 = Logger.of(UserController.class);
 
     private final UserRepository userRepository;
 
@@ -34,6 +38,7 @@ public class UserController extends Controller {
      * @return
      */
     public Result createUser(Http.Request request) {
+        logger1.info("创建用户");
         User p = Json.fromJson(request.body().asJson(), User.class);
         p.save();
         return ok(Json.toJson(Results.success(p)));
@@ -46,6 +51,7 @@ public class UserController extends Controller {
      * @return
      */
     public Result deleteUser(Http.Request request) {
+        logger1.info("删除用户");
         UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
         User u = userRepository.deleteUser(p);
         if (u == null){
@@ -61,6 +67,7 @@ public class UserController extends Controller {
      * @return
      */
     public Result updateUser(Http.Request request) {
+        logger1.info("修改用户");
         UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
         User u = userRepository.updateUser(p);
         if (u == null){
