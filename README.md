@@ -5,6 +5,10 @@ sbt clean
 sbt update
 sbt compile
 
+
+sbt clean update compile
+
+
 权限日志:
 
 import org.slf4j.Logger;
