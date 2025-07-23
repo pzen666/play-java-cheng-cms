@@ -1,18 +1,18 @@
 package controllers;
 
+import actions.GlobalAuthAction;
 import entity.PageDTO;
 import entity.WhereDTO;
 import entity.dto.UserDTO;
 import entity.result.Results;
-import io.ebean.DB;
 import jakarta.inject.Inject;
 import models.User;
-import org.slf4j.LoggerFactory;
 import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.With;
 import repository.UserRepository;
 
 import java.util.List;
@@ -37,6 +37,7 @@ public class UserController extends Controller {
      * @param request
      * @return
      */
+    @With(GlobalAuthAction.class)
     public Result createUser(Http.Request request) {
         logger1.info("创建用户");
         User p = Json.fromJson(request.body().asJson(), User.class);
@@ -50,11 +51,12 @@ public class UserController extends Controller {
      * @param request
      * @return
      */
+    @With(GlobalAuthAction.class)
     public Result deleteUser(Http.Request request) {
         logger1.info("删除用户");
         UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
         User u = userRepository.deleteUser(p);
-        if (u == null){
+        if (u == null) {
             return notFound(Json.toJson(Results.error("用户不存在")));
         }
         return ok(Json.toJson(Results.success(u)));
@@ -70,7 +72,7 @@ public class UserController extends Controller {
         logger1.info("修改用户");
         UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);
         User u = userRepository.updateUser(p);
-        if (u == null){
+        if (u == null) {
             return notFound(Json.toJson(Results.error("用户不存在")));
         }
         return ok(Json.toJson(Results.success(u)));

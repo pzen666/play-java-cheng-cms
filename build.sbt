@@ -1,5 +1,3 @@
-import scala.language.postfixOps
-
 name := "play-java-cheng-cms"
 organization := "com.cms"
 version := "1.0-SNAPSHOT"
@@ -17,28 +15,17 @@ libraryDependencies ++= Seq(
   "org.playframework" %% "play-guice" % "3.0.8",
   "org.playframework" %% "play-json" % "3.0.5",
   "org.playframework" %% "play-logback" % "3.0.8",
-
+  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.19.2",
   // PostgreSQL JDBC 驱动
   "org.postgresql" % "postgresql" % "42.7.7",
-
   // Ebean ORM
   "io.ebean" % "ebean" % "17.0.0-RC3",
-
   // 数据库连接池
   "com.zaxxer" % "HikariCP" % "6.3.1",
-
-  // 测试依赖
-  "org.awaitility" % "awaitility" % "4.3.0" % Test,
-  "org.assertj" % "assertj-core" % "3.27.3" % Test,
-  "org.mockito" % "mockito-core" % "5.18.0" % Test,
-  "org.junit.jupiter" % "junit-jupiter" % "5.11.0" % Test,
-
   // JSON 处理
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.19.2",
-
   // Lombok（可选，用于简化 Java 代码）
   "org.projectlombok" % "lombok" % "1.18.38" % Compile,
-
   // JWT 支持
   "com.auth0" % "java-jwt" % "4.5.0"
 )
@@ -53,6 +40,6 @@ resolvers := Seq(
 )
 
 // 启动入口（可选，默认已由 Play 插件处理）
-Compile / run := {
-  (Compile / runMain).evaluated
-}
+//Compile / run := {
+//  (Compile / runMain).evaluated
+//}

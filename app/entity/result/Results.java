@@ -15,7 +15,7 @@ public class Results<T> {
 
     public static Object error(String msg) {
         Results<Object> res = new Results<>();
-        res.code = 200;
+        res.code = 400;
         res.data = null;
         res.msg = msg;
         return res;
