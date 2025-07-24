@@ -1,6 +1,7 @@
 package actions;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import entity.result.Results;
 import play.libs.Json;
 import play.mvc.Action;
 import play.mvc.Http;
@@ -15,17 +16,17 @@ public class GlobalAuthAction extends Action.Simple {
     @Override
     public CompletionStage<Result> call(Http.Request request) {
         // 排除登录接口
-        if (request.path().equals("/login")) {
-            return delegate.call(request);
-        }
-
-        // 排除刷新token接口
-        if (request.path().equals("/refresh")) {
-            return delegate.call(request);
-        }
-        if (request.path().equals("/")) {
-            return delegate.call(request);
-        }
+//        if (request.path().equals("/login")) {
+//            return delegate.call(request);
+//        }
+//
+//        // 排除刷新token接口
+//        if (request.path().equals("/refresh")) {
+//            return delegate.call(request);
+//        }
+//        if (request.path().equals("/")) {
+//            return delegate.call(request);
+//        }
 
         // 检查Authorization header
         String authHeader = request.header("Authorization").orElse(null);
@@ -39,22 +40,14 @@ public class GlobalAuthAction extends Action.Simple {
             } catch (Exception e) {
                 // 检查是否是token过期异常
                 if (e.getMessage() != null && e.getMessage().contains("expired")) {
-                    ObjectNode errorNode = Json.newObject();
-                    errorNode.put("error", "token_expired");
-                    errorNode.put("message", "Token已过期，请刷新Token");
-                    return CompletableFuture.completedFuture(unauthorized(errorNode));
+                    return CompletableFuture.completedFuture(unauthorized(Json.toJson(Results.error(401,"Token已过期，请刷新Token"))));
                 } else {
-                    ObjectNode errorNode = Json.newObject();
-                    errorNode.put("error", "invalid_token");
-                    errorNode.put("message", "无效的Token");
-                    return CompletableFuture.completedFuture(unauthorized(errorNode));
+                    return CompletableFuture.completedFuture(unauthorized(Json.toJson(Results.error(401,"无效的Token"))));
                 }
             }
         } else {
-            ObjectNode errorNode = Json.newObject();
-            errorNode.put("error", "missing_token");
-            errorNode.put("message", "缺少Authorization header或格式不正确");
-            return CompletableFuture.completedFuture(unauthorized(errorNode));
+            return CompletableFuture.completedFuture(unauthorized(Json.toJson(Results.error(401,"请登录后操作"))));
         }
     }
+
 }
