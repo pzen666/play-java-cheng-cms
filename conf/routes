@@ -3,12 +3,32 @@
 # ~~~~
 
 # An example controller showing a sample home page
+# api.Routes
+# 认证接口
+POST        /login                     controllers.Application.login(request: Request)
+POST        /logout                    controllers.Application.logout()
+GET         /simpleLogin               controllers.Application.simpleLogin()
+
+# 用户接口
+GET         /user/info                 controllers.Application.getUserInfo(request: Request)
+
+# Session测试接口
+GET         /session/set               controllers.SessionController.getSessionToken
+GET         /session/read              controllers.SessionController.readSessionData(request: Request)
+GET         /session/readAlt           controllers.SessionController.readSessionDataAlt(request: Request)
+GET         /session/clear             controllers.SessionController.clearSession()
+
+
+
+
+
+
 #demo测试
 GET         /findByDatabase            controllers.DemoController.findByDatabase()
 GET         /                          controllers.HomeController.index()
 POST        /User                      controllers.HomeController.user()
 #登录
-POST        /login                     controllers.AuthController.login(request: Request)
+POST        /login1                    controllers.AuthController.login(request: Request)
 POST        /refresh                   controllers.AuthController.refresh(request: Request)
 #用户操作
 POST        /user/save                 controllers.UserController.createUser(request: Request)
