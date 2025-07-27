@@ -3,16 +3,13 @@ package repository;
 import entity.CmsConfigDTO;
 import entity.PageDTO;
 import entity.WhereDTO;
-import entity.dto.UserDTO;
 import io.ebean.DB;
 import io.ebean.ExpressionList;
 import io.ebean.PagedList;
 import jakarta.inject.Inject;
 import models.CmsConfig;
-import models.User;
 import service.DynamicQueryService;
 
-import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;

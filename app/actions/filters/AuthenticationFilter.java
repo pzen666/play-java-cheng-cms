@@ -2,6 +2,7 @@ package actions.filters;
 
 import com.typesafe.config.Config;
 import entity.result.Results;
+import jakarta.inject.Inject;
 import org.apache.pekko.stream.Materializer;
 import play.http.HttpFilters;
 import play.libs.Json;
@@ -10,7 +11,6 @@ import play.mvc.Filter;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import jakarta.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -77,5 +77,5 @@ public class AuthenticationFilter implements HttpFilters {
             }
         }
     }
-    
+
 }

@@ -38,3 +38,13 @@ POST        /cms/cmsUpdateConfig         controllers.CmsController.cmsUpdateConf
 POST        /cms/cmsDeleteConfig         controllers.CmsController.cmsDeleteConfig(request: Request)
 POST        /cms/cmsPageConfig           controllers.CmsController.cmsPageConfig(request: Request)
 POST        /cms/cmsUrlTestStatus        controllers.CmsController.cmsUrlTestStatus(request: Request)
+
+
+# 定时任务
+POST        /job/listTasks               controllers.TaskController.listTasks(request: Request)
+POST        /job/createTask              controllers.TaskController.createTask(request: Request)
+POST        /job/updateTask              controllers.TaskController.updateTask(request: Request)
+POST        /job/toggleTask              controllers.TaskController.toggleTask(request: Request)
+POST        /job/deleteTask              controllers.TaskController.deleteTask(request: Request)
+POST        /job/getResourceList         controllers.TaskController.getResourceList(request: Request)
+

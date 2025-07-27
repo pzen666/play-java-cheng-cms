@@ -1,9 +1,8 @@
 package repository;
 
+import jakarta.inject.Inject;
 import org.apache.pekko.actor.ActorSystem;
 import play.libs.concurrent.CustomExecutionContext;
-
-import jakarta.inject.Inject;
 
 public class DatabaseExecutionContext  extends CustomExecutionContext {
 

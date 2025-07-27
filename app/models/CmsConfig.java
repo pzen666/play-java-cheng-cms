@@ -8,6 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name = "t_cms_config", schema = "public")
 public class CmsConfig extends Model {
+    
     public static final io.ebean.Finder<Long, CmsConfig> find = new io.ebean.Finder<>(CmsConfig.class);
 
     @Id
