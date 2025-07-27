@@ -17,6 +17,7 @@ public class Application extends Controller {
         // 设置 session 数据
         Session session = request.session();
         session = session.adding("username", username);
+        session = session.adding("loggedIn", "true");
         session = session.adding("role", "user");
 
         // 返回结果并设置session

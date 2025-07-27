@@ -1,6 +1,5 @@
 package controllers;
 
-import actions.GlobalAuthAction;
 import entity.PageDTO;
 import entity.WhereDTO;
 import entity.dto.UserDTO;
@@ -37,7 +36,6 @@ public class UserController extends Controller {
      * @param request
      * @return
      */
-    @With(GlobalAuthAction.class)
     public Result createUser(Http.Request request) {
         logger1.info("创建用户");
         User p = Json.fromJson(request.body().asJson(), User.class);
@@ -51,7 +49,6 @@ public class UserController extends Controller {
      * @param request
      * @return
      */
-    @With(GlobalAuthAction.class)
     public Result deleteUser(Http.Request request) {
         logger1.info("删除用户");
         UserDTO p = Json.fromJson(request.body().asJson(), UserDTO.class);

@@ -5,6 +5,7 @@
 # An example controller showing a sample home page
 # api.Routes
 # 认证接口
+
 POST        /login                     controllers.Application.login(request: Request)
 POST        /logout                    controllers.Application.logout()
 GET         /simpleLogin               controllers.Application.simpleLogin()
@@ -28,8 +29,7 @@ GET         /findByDatabase            controllers.DemoController.findByDatabase
 GET         /                          controllers.HomeController.index()
 POST        /User                      controllers.HomeController.user()
 #登录
-POST        /login1                    controllers.AuthController.login(request: Request)
-POST        /refresh                   controllers.AuthController.refresh(request: Request)
+
 #用户操作
 POST        /user/save                 controllers.UserController.createUser(request: Request)
 POST        /user/del                  controllers.UserController.deleteUser(request: Request)
