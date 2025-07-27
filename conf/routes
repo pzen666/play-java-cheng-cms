@@ -4,24 +4,12 @@
 
 # An example controller showing a sample home page
 # api.Routes
-# 认证接口
-
-POST        /login                     controllers.Application.login(request: Request)
-POST        /logout                    controllers.Application.logout()
-GET         /simpleLogin               controllers.Application.simpleLogin()
-
-# 用户接口
-GET         /user/info                 controllers.Application.getUserInfo(request: Request)
-
-# Session测试接口
-GET         /session/set               controllers.SessionController.getSessionToken
-GET         /session/read              controllers.SessionController.readSessionData(request: Request)
-GET         /session/readAlt           controllers.SessionController.readSessionDataAlt(request: Request)
-GET         /session/clear             controllers.SessionController.clearSession()
-
-
-
-
+# 登录
+POST        /login                     controllers.ApplicationController.login(request: Request)
+# 退出登录
+POST        /logout                    controllers.ApplicationController.logout(request: Request)
+# 当前用户信息
+GET         /user/info                 controllers.ApplicationController.getUserInfo(request: Request)
 
 
 #demo测试

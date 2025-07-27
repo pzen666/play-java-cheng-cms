@@ -1,9 +1,10 @@
 package controllers;
 
+import entity.result.Results;
 import models.User;
 import play.libs.Json;
-import play.mvc.*;
-import entity.result.Results;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 import java.util.List;
 

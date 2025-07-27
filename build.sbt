@@ -30,7 +30,9 @@ libraryDependencies ++= Seq(
   // Lombok（可选，用于简化 Java 代码）
   "org.projectlombok" % "lombok" % "1.18.38" % Compile,
   // JWT 支持
-  "com.auth0" % "java-jwt" % "4.5.0"
+  "com.auth0" % "java-jwt" % "4.5.0",
+  // BCrypt密码哈希支持
+  "org.springframework.security" % "spring-security-crypto" % "6.3.1"
 )
 
 // 禁用 Java 编译警告为错误
