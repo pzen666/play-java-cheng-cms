@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="962b6665-118b-4a0a-8572-1c3bc2a17fd0" name="更改" comment="jwt 完整版">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.iml" afterDir="false" />
+    <list default="true" id="962b6665-118b-4a0a-8572-1c3bc2a17fd0" name="更改" comment="jwt 登录健全修复成功,待优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jetclient/1 用户/创建用户.md" beforeDir="false" afterPath="$PROJECT_DIR$/.jetclient/1 用户/创建用户.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/AttrKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/AuthAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/GlobalAuthAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/JwtAuthAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/SessionAuthAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +64,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
+    <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
     <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
     <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
     <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
@@ -175,9 +167,9 @@
           <option value="-Xss1M" />
         </array>
       </option>
-      <option name="play2NeedOpenInBrowser" value="true" />
+      <option name="play2NeedOpenInBrowser" value="false" />
       <option name="play2NonDefaultInstallDir" value="" />
-      <option name="play2OpenUrl" value="http://localhost:9000" />
+      <option name="play2OpenUrl" value="http://localhost:9000/index" />
       <option name="play2isAutoReloadEnabled" value="true" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
@@ -213,7 +205,7 @@
       <workItem from="1753520066089" duration="2130000" />
       <workItem from="1753522717937" duration="6631000" />
       <workItem from="1753582977823" duration="1500000" />
-      <workItem from="1753584751513" duration="3911000" />
+      <workItem from="1753584751513" duration="5081000" />
     </task>
     <task id="LOCAL-00001" summary="idea可能造成sbt结构出错 依赖问题  所以提交.idea配置信息">
       <option name="closed" value="true" />
@@ -223,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753531420647</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="jwt 登录健全修复成功,待优化">
+      <option name="closed" value="true" />
+      <created>1753589999963</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753589999963</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +247,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="idea可能造成sbt结构出错 依赖问题  所以提交.idea配置信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="idea可能造成sbt结构出错 依赖问题  所以提交.idea配置信息" />
+    <MESSAGE value="jwt 登录健全修复成功,待优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="jwt 登录健全修复成功,待优化" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -320,22 +321,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java</url>
-          <line>55</line>
+          <line>49</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java</url>
-          <line>46</line>
+          <line>40</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java</url>
-          <line>60</line>
+          <line>54</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>

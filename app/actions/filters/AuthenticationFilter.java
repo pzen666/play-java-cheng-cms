@@ -10,18 +10,18 @@ import play.mvc.Http;
 import play.mvc.Result;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
-import java.util.Arrays;
 import org.apache.pekko.stream.Materializer;
 import java.util.concurrent.CompletableFuture;
+import com.typesafe.config.Config;
 
 public class AuthenticationFilter implements HttpFilters {
 
     private final List<EssentialFilter> filters = new ArrayList<>();
 
     @Inject
-    public AuthenticationFilter(Materializer mat) {
+    public AuthenticationFilter(Materializer mat, Config config) {
         // 添加认证过滤器到过滤器列表中
-        filters.add(new AuthFilter(mat));
+        filters.add(new AuthFilter(mat, config));
     }
 
     @Override
@@ -33,18 +33,12 @@ public class AuthenticationFilter implements HttpFilters {
      * 内部类，实现具体的认证逻辑
      */
     public static class AuthFilter extends Filter {
-        private final List<String> excludePaths = Arrays.asList(
-//                "/", //放开所有
-                "/index",
-                "/login",
-                "/simpleLogin",
-                "/assets/",
-                "/user/getUser",
-                "/health"
-        );
+        private final List<String> excludePaths;
 
-        public AuthFilter(Materializer mat) {
+        public AuthFilter(Materializer mat, Config config) {
             super(mat);
+            // 从配置文件中读取排除路径列表
+            this.excludePaths = config.getStringList("auth.exclude.paths");
         }
 
         @Override
