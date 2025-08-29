@@ -2,9 +2,10 @@ package models;
 
 import io.ebean.Model;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
-@Table(name = "user",schema = "public")
+@Table(name = "user", schema = "public")
 public class User extends Model {
 
     public static final io.ebean.Finder<Long, User> find = new io.ebean.Finder<>(User.class);
@@ -55,6 +56,7 @@ public class User extends Model {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        this.password = encoder.encode(password);
     }
 }

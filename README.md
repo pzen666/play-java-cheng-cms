@@ -9,6 +9,12 @@ sbt compile
 sbt clean update compile
 
 
+-Xms512M
+-Xmx2048M
+-Xss1M
+-XX:-CreateMinidumpOnCrash
+-XX:-HeapDumpOnOutOfMemoryError
+
 权限日志:
 
 import org.slf4j.Logger;

@@ -25,5 +25,67 @@ public class VodVideoListVO {
     //播放器
     private String vodPlayFrom;
 
+    public String getVodId() {
+        return vodId;
+    }
 
+    public void setVodId(String vodId) {
+        this.vodId = vodId;
+    }
+
+    public String getVodName() {
+        return vodName;
+    }
+
+    public void setVodName(String vodName) {
+        this.vodName = vodName;
+    }
+
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getVodEn() {
+        return vodEn;
+    }
+
+    public void setVodEn(String vodEn) {
+        this.vodEn = vodEn;
+    }
+
+    public String getVodTime() {
+        return vodTime;
+    }
+
+    public void setVodTime(String vodTime) {
+        this.vodTime = vodTime;
+    }
+
+    public String getVodRemarks() {
+        return vodRemarks;
+    }
+
+    public void setVodRemarks(String vodRemarks) {
+        this.vodRemarks = vodRemarks;
+    }
+
+    public String getVodPlayFrom() {
+        return vodPlayFrom;
+    }
+
+    public void setVodPlayFrom(String vodPlayFrom) {
+        this.vodPlayFrom = vodPlayFrom;
+    }
 }

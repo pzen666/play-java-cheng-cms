@@ -46,10 +46,10 @@ public class VodVideoParser {
      * @return
      * @throws Exception
      */
-    public static VodVideoVO xml(String xmlUrl) throws Exception {
-        String xmlData = getHttpContent(xmlUrl); // 完整的 XML 字符串
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    public static VodVideoVO xml(String xmlUrl) {
         try {
+            String xmlData = getHttpContent(xmlUrl); // 完整的 XML 字符串
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             // 关闭 DTD 验证，防止因外部资源缺失导致解析失败
             factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             factory.setValidating(false);
@@ -117,7 +117,7 @@ public class VodVideoParser {
         } catch (Exception e) {
             log.error("转换异常 : {}", e.getMessage());
             e.printStackTrace();
-            throw e;
+            return null;
         }
     }
 
@@ -137,45 +137,49 @@ public class VodVideoParser {
      * @return
      * @throws Exception
      */
-    public static VodVideoVO json(String url) throws Exception {
-        String jsonValue = getHttpContent(url);
-        VodVideoVO vodVideoVO = new VodVideoVO();
-        if (jsonValue != null && jsonValue.length() > 20) {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonAnyData b = mapper.readValue(jsonValue, JsonAnyData.class);
-            Map<String, Object> m = b.getOtherFields();
-            vodVideoVO.setCode(m.get("code").toString());
-            vodVideoVO.setMsg(m.get("msg").toString());
-            vodVideoVO.setPage(m.get("page").toString());
-            vodVideoVO.setPageCount(m.get("pagecount").toString());
-            vodVideoVO.setLimit(m.get("limit").toString());
-            vodVideoVO.setTotal(m.get("total").toString());
-            List<Map<String, Object>> listData = (List<Map<String, Object>>) m.get("list");
-            List<Map<String, Object>> classData = (List<Map<String, Object>>) m.get("class");
-            List<VodVideoListVO> vodVideoListVOList = new ArrayList<>();
-            List<VodVideoClassVO> classTypeList = new ArrayList<>();
-            for (Map<String, Object> map : listData) {
-                VodVideoListVO v = new VodVideoListVO();
-                v.setVodId(map.get("vod_id").toString());
-                v.setVodName(map.get("vod_name").toString());
-                v.setTypeId(map.get("type_id").toString());
-                v.setTypeName(map.get("type_name").toString());
-                v.setVodEn(map.get("vod_en").toString());
-                v.setVodTime(map.get("vod_time").toString());
-                v.setVodRemarks(map.get("vod_remarks").toString());
-                v.setVodPlayFrom(map.get("vod_play_from").toString());
-                vodVideoListVOList.add(v);
+    public static VodVideoVO json(String url) {
+        try {
+            String jsonValue = getHttpContent(url);
+            VodVideoVO vodVideoVO = new VodVideoVO();
+            if (jsonValue != null && jsonValue.length() > 20) {
+                ObjectMapper mapper = new ObjectMapper();
+                JsonAnyData b = mapper.readValue(jsonValue, JsonAnyData.class);
+                Map<String, Object> m = b.getOtherFields();
+                vodVideoVO.setCode(m.get("code").toString());
+                vodVideoVO.setMsg(m.get("msg").toString());
+                vodVideoVO.setPage(m.get("page").toString());
+                vodVideoVO.setPageCount(m.get("pagecount").toString());
+                vodVideoVO.setLimit(m.get("limit").toString());
+                vodVideoVO.setTotal(m.get("total").toString());
+                List<Map<String, Object>> listData = (List<Map<String, Object>>) m.get("list");
+                List<Map<String, Object>> classData = (List<Map<String, Object>>) m.get("class");
+                List<VodVideoListVO> vodVideoListVOList = new ArrayList<>();
+                List<VodVideoClassVO> classTypeList = new ArrayList<>();
+                for (Map<String, Object> map : listData) {
+                    VodVideoListVO v = new VodVideoListVO();
+                    v.setVodId(map.get("vod_id").toString());
+                    v.setVodName(map.get("vod_name").toString());
+                    v.setTypeId(map.get("type_id").toString());
+                    v.setTypeName(map.get("type_name").toString());
+                    v.setVodEn(map.get("vod_en").toString());
+                    v.setVodTime(map.get("vod_time").toString());
+                    v.setVodRemarks(map.get("vod_remarks").toString());
+                    v.setVodPlayFrom(map.get("vod_play_from").toString());
+                    vodVideoListVOList.add(v);
+                }
+                for (Map<String, Object> map : classData) {
+                    VodVideoClassVO v = new VodVideoClassVO();
+                    v.setTypeId(map.get("type_id").toString());
+                    v.setTypeName(map.get("type_name").toString());
+                    classTypeList.add(v);
+                }
+                vodVideoVO.setList(vodVideoListVOList);
+                vodVideoVO.setClassType(classTypeList);
             }
-            for (Map<String, Object> map : classData) {
-                VodVideoClassVO v = new VodVideoClassVO();
-                v.setTypeId(map.get("type_id").toString());
-                v.setTypeName(map.get("type_name").toString());
-                classTypeList.add(v);
-            }
-            vodVideoVO.setList(vodVideoListVOList);
-            vodVideoVO.setClassType(classTypeList);
+            return vodVideoVO;
+        } catch (Exception e) {
+            return new VodVideoVO();
         }
-        return vodVideoVO;
     }
 
 

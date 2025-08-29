@@ -20,4 +20,12 @@ public class Results<T> {
         res.msg = msg;
         return res;
     }
+
+    public static Object error(Integer code,String msg) {
+        Results<Object> res = new Results<>();
+        res.code = code;
+        res.data = null;
+        res.msg = msg;
+        return res;
+    }
 }

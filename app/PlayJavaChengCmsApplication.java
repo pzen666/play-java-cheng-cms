@@ -1,5 +1,4 @@
 import play.core.server.ProdServerStart;
-import play.routing.Router;
 
 public class PlayJavaChengCmsApplication {
 
