@@ -5,6 +5,7 @@ scalaVersion := "3.3.6"
 
 // 启用 Play Java 插件
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean, PlayLogback)
+PlayKeys.devSettings += "play.server.http.port" -> "9000"
 
 // 依赖项
 libraryDependencies ++= Seq(

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.play-java-cheng-cms-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms/play-java-cheng-cms.play-java-cheng-cms-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-cheng-cms.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-cheng-cms.play-java-cheng-cms-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-cheng-cms.play-java-cheng-cms-build.iml" />
     </modules>
   </component>
 </project>
