@@ -14,7 +14,7 @@ GET         /user/info                   controllers.ApplicationController.getUs
 
 #demo测试
 GET         /findByDatabase              controllers.DemoController.findByDatabase()
-GET         /index                       controllers.HomeController.index()
+GET         /                            controllers.HomeController.index()
 POST        /User                        controllers.HomeController.user()
 #登录
 
