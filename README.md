@@ -5,8 +5,29 @@ sbt clean
 sbt update
 sbt compile
 
+sbt clean reload
+sbt clean reload update compile  Universal/packageBin
+sbt stage
 
-sbt clean update compile
+#排查依赖冲突
+sbt dependencyTree
+
+
+# universal zip
+sbt Universal/packageBin
+
+# debian package
+sbt Debian/packageBin
+
+# rpm package
+sbt Rpm/packageBin
+
+# docker image
+sbt Docker/publishLocal
+
+# graalvm image
+sbt GraalVMNativeImage/packageBin
+
 
 
 -Xms512M
@@ -34,3 +55,16 @@ private static final Marker SECURITY_MARKER = MarkerFactory.getMarker("SECURITY"
         }
     }
 }
+
+
+
+
+生成符合要求的 Secret Key
+方案1：使用 OpenSSL 生成（推荐）
+# Linux/Mac
+openssl rand -base64 48 | tr -d '\n/=+'
+
+# Windows PowerShell
+-join ((65..90) + (97..122) + (48..57) | Get-Random -Count 64 | % {[char]$_})
+
+

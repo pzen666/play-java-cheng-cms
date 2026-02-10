@@ -8,3 +8,12 @@ target
 /.settings
 /RUNNING_PID
 /project/target
+/target
+.bsp
+.idea
+.idea_modules
+.classpath
+.project
+.settings
+RUNNING_PID
+project/target

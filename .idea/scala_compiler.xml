@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="play-java-cheng-cms_3574,play-java-cheng-cms_3574.main,play-java-cheng-cms_3574.test" />
-    <profile name="sbt 2" modules="play-java-cheng-cms,play-java-cheng-cms.main,play-java-cheng-cms.test">
+    <profile name="sbt 2" modules="SBTWorker.play-java-cheng-cms,play-java-cheng-cms,play-java-cheng-cms.main,play-java-cheng-cms.test">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <parameters>

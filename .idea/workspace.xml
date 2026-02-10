@@ -5,9 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="962b6665-118b-4a0a-8572-1c3bc2a17fd0" name="更改" comment="jwt 登录健全修复成功,待优化">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_5_18_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__ch_qos_logback_logback_core_1_5_18_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_19_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_19_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_19_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_3_2_19_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_config_1_4_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_zaxxer_HikariCP_6_3_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__commons_io_commons_io_2_19_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_avaje_avaje_applog_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_avaje_avaje_config_4_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_avaje_avaje_lang_1_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_api_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_core_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_core_type_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_datasource_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_datasource_api_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_jackson_mapper_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_migration_14_2_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_all_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_clickhouse_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_db2_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_h2_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_hana_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_hsqldb_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_mariadb_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_mysql_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_nuodb_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_oracle_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_postgres_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_sqlanywhere_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_sqlite_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_platform_sqlserver_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__io_ebean_ebean_querybean_17_0_0_RC3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__net_bytebuddy_byte_buddy_1_14_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_checkerframework_checker_qual_3_49_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_lz4_lz4_java_1_8_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_build_link_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_configuration_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_exceptions_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_filters_helpers_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_functional_3_3_0_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_guice_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_java_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_java_forms_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_json_3_3_0_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_logback_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_pekko_http_server_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_server_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_streams_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_playframework_play_test_3_3_0_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_postgresql_postgresql_42_7_7_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_projectlombok_lombok_1_18_38_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_3_6_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/actions/filters/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/evolutions/slave/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/evolutions/slave/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +88,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="play-java-cheng-cms" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -118,6 +177,7 @@
   &quot;keyToString&quot;: {
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Play 应用.cms.executor&quot;: &quot;Debug&quot;,
     &quot;Play 应用.未命名.executor&quot;: &quot;Debug&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -125,13 +185,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main-test&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.29885057&quot;,
     &quot;settings.build.tools.auto.reload&quot;: &quot;SELECTIVE&quot;,
@@ -151,7 +211,7 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="未命名" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="cms" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="play-java-cheng-cms" />
       <option name="allowRunningInParallel" value="false" />
       <option name="enableSbtGlobalPlugins" value="false" />
@@ -167,7 +227,7 @@
           <option value="-Xss1M" />
         </array>
       </option>
-      <option name="play2NeedOpenInBrowser" value="false" />
+      <option name="play2NeedOpenInBrowser" value="true" />
       <option name="play2NonDefaultInstallDir" value="" />
       <option name="play2OpenUrl" value="http://localhost:9000/index" />
       <option name="play2isAutoReloadEnabled" value="true" />
@@ -206,6 +266,9 @@
       <workItem from="1753522717937" duration="6631000" />
       <workItem from="1753582977823" duration="1500000" />
       <workItem from="1753584751513" duration="5081000" />
+      <workItem from="1770621684044" duration="1972000" />
+      <workItem from="1770623751285" duration="5736000" />
+      <workItem from="1770709998182" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="idea可能造成sbt结构出错 依赖问题  所以提交.idea配置信息">
       <option name="closed" value="true" />
