@@ -1,5 +1,6 @@
 # play-java-cheng-cms
 基于Play Framework框架开发的CMS采集系统，采用GPL V3版本授权
+Remove-Item -Recurse -Force target, project\target -ErrorAction SilentlyContinue
 
 sbt clean
 sbt update
@@ -66,5 +67,10 @@ openssl rand -base64 48 | tr -d '\n/=+'
 
 # Windows PowerShell
 -join ((65..90) + (97..122) + (48..57) | Get-Random -Count 64 | % {[char]$_})
+
+# 链接存储设计为存储到clickhouse中
+前端根据名称查询走clickhouse
+增加切换数据源功能  选择是否启用clickhouse 以提高性能
+
 
 

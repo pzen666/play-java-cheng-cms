@@ -10,7 +10,8 @@ lazy val root = (project in file("."))
     version := "1.0-SNAPSHOT",
     maintainer := "cheng896911036@outlook.com",
     // 设置主类
-    Compile / mainClass := Some("play.core.server.ProdServerStart")
+    Compile / mainClass := Some("play.core.server.ProdServerStart"),
+
   )
 
 // 启动端口
@@ -18,6 +19,8 @@ PlayKeys.devSettings += "play.server.http.port" -> "9000"
 
 // 依赖项
 libraryDependencies ++= Seq(
+  guice,
+  jdbc,
   // Play Framework 核心依赖
   "org.playframework" %% "play" % "3.0.10",
   "org.playframework" %% "play-server" % "3.0.10",
@@ -27,7 +30,7 @@ libraryDependencies ++= Seq(
   "org.playframework" %% "play-logback" % "3.0.10",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.21.0", // 注意如果org.playframework.play-json 升级后，这里需要升级
   // PostgreSQL JDBC 驱动
-  "org.postgresql" % "postgresql" % "42.7.9",
+  "org.postgresql" % "postgresql" % "42.7.10",
   // Ebean ORM
   "io.ebean" % "ebean" % "17.2.1",
   // 数据库连接池
@@ -42,7 +45,10 @@ libraryDependencies ++= Seq(
   // JWT 支持
   "com.auth0" % "java-jwt" % "4.5.0",
   // BCrypt密码哈希支持
-  "org.springframework.security" % "spring-security-crypto" % "7.0.2"
+  "org.springframework.security" % "spring-security-crypto" % "7.0.2",
+  "io.lettuce" % "lettuce-core" % "7.4.0.RELEASE",
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.21.0"
+
 )
 
 // 禁用 Java 编译警告为错误
@@ -55,6 +61,6 @@ resolvers := Seq(
 )
 
 // 启动入口（可选，默认已由 Play 插件处理）
-//Compile / run := {
-//  (Compile / runMain).evaluated
-//}
+Compile / run := {
+  (Compile / runMain).evaluated
+}

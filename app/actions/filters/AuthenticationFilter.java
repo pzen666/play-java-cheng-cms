@@ -25,7 +25,9 @@ public class AuthenticationFilter implements HttpFilters {
 
     @Inject
     public AuthenticationFilter(Materializer mat, Config config) {
-        // 添加认证过滤器到过滤器列表中
+        // 添加 CORS 过滤器（第一个执行）
+        filters.add(new CORSFilter(mat));
+        // 添加认证过滤器
         filters.add(new AuthFilter(mat, config));
         // 添加请求日志过滤器
         filters.add(new RequestLoggingFilter(mat));
@@ -37,6 +39,45 @@ public class AuthenticationFilter implements HttpFilters {
     }
 
     /**
+     * 自定义 CORS 过滤器 - 直接添加 CORS 响应头
+     */
+    public static class CORSFilter extends Filter {
+        public CORSFilter(Materializer mat) {
+            super(mat);
+        }
+
+        @Override
+        public CompletionStage<Result> apply(
+                Function<Http.RequestHeader, CompletionStage<Result>> next,
+                Http.RequestHeader requestHeader) {
+
+            // 处理 OPTIONS 预检请求
+            if ("OPTIONS".equalsIgnoreCase(requestHeader.method())) {
+                logger.debug("✓ CORS OPTIONS 预检请求: {}", requestHeader.uri());
+
+                Result result = play.mvc.Results.ok()
+                        .withHeader("Access-Control-Allow-Origin", "*")
+                        .withHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH")
+                        .withHeader("Access-Control-Allow-Headers", "*")
+                        .withHeader("Access-Control-Max-Age", "3600")
+                        .withHeader("Access-Control-Allow-Credentials", "true");
+
+                return CompletableFuture.completedFuture(result);
+            }
+
+            // 处理普通请求 - 添加 CORS 响应头
+            return next.apply(requestHeader).thenApply(result -> {
+                return result
+                        .withHeader("Access-Control-Allow-Origin", "*")
+                        .withHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH")
+                        .withHeader("Access-Control-Allow-Headers", "*")
+                        .withHeader("Access-Control-Max-Age", "3600")
+                        .withHeader("Access-Control-Allow-Credentials", "true");
+            });
+        }
+    }
+
+    /**
      * 内部类，实现具体的认证逻辑
      */
     public static class AuthFilter extends Filter {
@@ -45,7 +86,6 @@ public class AuthenticationFilter implements HttpFilters {
 
         public AuthFilter(Materializer mat, Config config) {
             super(mat);
-            // 从配置文件中读取排除路径列表
             this.excludePaths = config.getStringList("auth.exclude.paths");
             this.filterPathStatus = config.getString("auth.exclude.filterPathStatus");
         }
@@ -54,27 +94,38 @@ public class AuthenticationFilter implements HttpFilters {
         public CompletionStage<Result> apply(
                 Function<Http.RequestHeader, CompletionStage<Result>> next,
                 Http.RequestHeader requestHeader) {
-            //是否放开全部接口用于调试
-            if (filterPathStatus.equals("true")) {
+
+            // 1. 放行 OPTIONS 预检请求（应该已经被 CORSFilter 处理）
+            if ("OPTIONS".equalsIgnoreCase(requestHeader.method())) {
                 return next.apply(requestHeader);
             }
-            // 检查是否是排除路径
+
+            // 2. 是否放开全部接口用于调试
+            if ("true".equals(filterPathStatus)) {
+                logger.debug("✓ 调试模式 - 放行所有请求: {}", requestHeader.uri());
+                return next.apply(requestHeader);
+            }
+
+            // 3. 检查是否是排除路径
             String path = requestHeader.path();
             for (String excludePath : excludePaths) {
                 if (path.equals(excludePath) ||
                         (excludePath.endsWith("/") && path.startsWith(excludePath)) ||
                         (excludePath.endsWith("/**") && path.startsWith(excludePath.substring(0, excludePath.length() - 2)))) {
+                    logger.debug("✓ 排除路径 - 放行: {}", path);
                     return next.apply(requestHeader);
                 }
             }
-            // 检查会话中的用户信息
+
+            // 4. 检查会话中的用户信息
             String username = requestHeader.session().get("username").orElse(null);
             String loggedIn = requestHeader.session().get("loggedIn").orElse(null);
+
             if (username != null && "true".equals(loggedIn)) {
-                // 用户已登录，允许访问
+                logger.debug("✓ 认证通过 - 用户: {}", username);
                 return next.apply(requestHeader);
             } else {
-                // 用户未登录，返回未授权
+                logger.warn("✗ 认证失败 - 未登录: {}", path);
                 return CompletableFuture.completedFuture(
                         play.mvc.Results.unauthorized(Json.toJson(Results.error("重新登陆!")))
                 );
@@ -83,10 +134,9 @@ public class AuthenticationFilter implements HttpFilters {
     }
 
     /**
-     * 请求日志过滤器，记录所有请求信息
+     * 请求日志过滤器
      */
     public static class RequestLoggingFilter extends Filter {
-
         public RequestLoggingFilter(Materializer mat) {
             super(mat);
         }
@@ -96,17 +146,14 @@ public class AuthenticationFilter implements HttpFilters {
                 Function<Http.RequestHeader, CompletionStage<Result>> next,
                 Http.RequestHeader requestHeader) {
             long startTime = System.currentTimeMillis();
-            // 记录请求开始
             logger.info("{} {} from {}",
                     requestHeader.method(),
                     requestHeader.uri(),
                     requestHeader.remoteAddress());
-            // 继续处理请求
+
             return next.apply(requestHeader).thenApply(result -> {
                 long duration = System.currentTimeMillis() - startTime;
-                // 获取处理请求的控制器信息
                 String controllerInfo = getControllerInfo(requestHeader);
-                // 记录响应信息
                 logger.info("METHOD={} PATH={} STATUS={} DURATION={}ms IP={} CONTROLLER={}",
                         requestHeader.method(),
                         requestHeader.uri(),
@@ -120,27 +167,16 @@ public class AuthenticationFilter implements HttpFilters {
         }
     }
 
-    /**
-     * 获取控制器信息，返回 "ControllerClass.actionMethod" 格式
-     * @param requestHeader
-     * @return
-     */
     private static String getControllerInfo(Http.RequestHeader requestHeader) {
         try {
-            // 获取请求属性中的路由定义（HandlerDef）
             if (requestHeader.attrs().containsKey(play.routing.Router.Attrs.HANDLER_DEF)) {
                 play.routing.HandlerDef handlerDef = requestHeader.attrs().get(play.routing.Router.Attrs.HANDLER_DEF);
-                String controller = handlerDef.controller();
-                String actionMethod = handlerDef.method();
-                return controller + "." + actionMethod;
+                return handlerDef.controller() + "." + handlerDef.method();
             } else {
-                // 如果没有 HandlerDef，尝试从路径推断或返回未知
                 return "Unknown (No HandlerDef)";
             }
         } catch (Exception e) {
-            // 日志可选：logger.error("Failed to get controller info", e);
             return "Unknown";
         }
     }
-
 }

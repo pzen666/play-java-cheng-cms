@@ -5,46 +5,48 @@
 # An example controller showing a sample home page
 # api.Routes
 # 登录
-POST        /login                       controllers.ApplicationController.login(request: Request)
+POST        /login                                        controllers.ApplicationController.login(request: Request)
 # 退出登录
-POST        /logout                      controllers.ApplicationController.logout(request: Request)
+POST        /logout                                       controllers.ApplicationController.logout(request: Request)
 # 当前用户信息
-GET         /user/info                   controllers.ApplicationController.getUserInfo(request: Request)
+GET         /user/info                                    controllers.ApplicationController.getUserInfo(request: Request)
 
 
 #demo测试
-GET         /findByDatabase              controllers.DemoController.findByDatabase()
-GET         /                            controllers.HomeController.index()
-POST        /User                        controllers.HomeController.user()
+GET         /findByDatabase                               controllers.DemoController.findByDatabase()
+GET         /                                             controllers.HomeController.index()
+POST        /user                                         controllers.HomeController.user()
 #登录
 
 #用户操作
-POST        /user/save                   controllers.UserController.createUser(request: Request)
-POST        /user/del                    controllers.UserController.deleteUser(request: Request)
-POST        /user/update                 controllers.UserController.updateUser(request: Request)
-POST        /user/getUser                controllers.UserController.getUser(request: Request)
-POST        /user/userPagedList          controllers.UserController.userPagedList(request: Request)
+POST        /user/save                                    controllers.UserController.createUser(request: Request)
+POST        /user/del                                     controllers.UserController.deleteUser(request: Request)
+POST        /user/update                                  controllers.UserController.updateUser(request: Request)
+POST        /user/getUser                                 controllers.UserController.getUser(request: Request)
+POST        /user/userPagedList                           controllers.UserController.userPagedList(request: Request)
 
 #访问静态资源
-GET         /assets/*file                controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file                                 controllers.Assets.versioned(path="/public", file: Asset)
 
 
 
 
 
 # CMS信息采集配置
-POST        /cms/cmsAddConfig            controllers.CmsController.cmsAddConfig(request: Request)
-POST        /cms/cmsUpdateConfig         controllers.CmsController.cmsUpdateConfig(request: Request)
-POST        /cms/cmsDeleteConfig         controllers.CmsController.cmsDeleteConfig(request: Request)
-POST        /cms/cmsPageConfig           controllers.CmsController.cmsPageConfig(request: Request)
-POST        /cms/cmsUrlTestStatus        controllers.CmsController.cmsUrlTestStatus(request: Request)
+POST        /cms/cmsAddConfig                             controllers.CmsController.cmsAddConfig(request: Request)
+POST        /cms/cmsUpdateConfig                          controllers.CmsController.cmsUpdateConfig(request: Request)
+POST        /cms/cmsDeleteConfig                          controllers.CmsController.cmsDeleteConfig(request: Request)
+POST        /cms/cmsPageConfig                            controllers.CmsController.cmsPageConfig(request: Request)
+POST        /cms/cmsUrlTestStatus                         controllers.CmsController.cmsUrlTestStatus(request: Request)
 
 
 # 定时任务
-POST        /job/listTasks               controllers.TaskController.listTasks(request: Request)
-POST        /job/createTask              controllers.TaskController.createTask(request: Request)
-POST        /job/updateTask              controllers.TaskController.updateTask(request: Request)
-POST        /job/toggleTask              controllers.TaskController.toggleTask(request: Request)
-POST        /job/deleteTask              controllers.TaskController.deleteTask(request: Request)
-POST        /job/getResourceList         controllers.TaskController.getResourceList(request: Request)
+POST        /job/listTasks                                controllers.TaskController.listTasks(request: Request)
+POST        /job/createTask                               controllers.TaskController.createTask(request: Request)
+POST        /job/updateTask                               controllers.TaskController.updateTask(request: Request)
+POST        /job/toggleTask                               controllers.TaskController.toggleTask(request: Request)
+POST        /job/deleteTask                               controllers.TaskController.deleteTask(request: Request)
+POST        /job/getResourceList                          controllers.TaskController.getResourceList(request: Request)
 
+# 系统配置
+POST        /systemconfig/saveOrUpdateSystemConfig        controllers.SystemConfigController.saveOrUpdateSystemConfig(request: Request)
