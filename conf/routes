@@ -50,3 +50,27 @@ POST        /job/getResourceList                          controllers.TaskContro
 
 # 系统配置
 POST        /systemconfig/saveOrUpdateSystemConfig        controllers.SystemConfigController.saveOrUpdateSystemConfig(request: Request)
+
+
+# 数据采集管理
+# 数据源
+POST        /datasource/addDataSource                     controllers.DataCollectionController.addDataSource(request: Request)
+POST        /datasource/delDataSource                     controllers.DataCollectionController.delDataSource(request: Request)
+POST        /datasource/upDataSource                      controllers.DataCollectionController.upDataSource(request: Request)
+POST        /datasource/findDataSourceById                controllers.DataCollectionController.findDataSourceById(request: Request)
+POST        /datasource/findDataSource                    controllers.DataCollectionController.findDataSource(request: Request)
+POST        /datasource/pagedList                         controllers.DataCollectionController.pagedList(request: Request)
+POST        /datasource/addOrUpdateDict                   controllers.DataCollectionController.addOrUpdateDict(request: Request)
+
+
+# 定时任务
+POST        /job/addScheduledTasks                        controllers.ScheduledTasksController.addScheduledTasks(request: Request)
+POST        /job/delScheduledTasks                        controllers.ScheduledTasksController.delScheduledTasks(request: Request)
+POST        /job/upScheduledTasks                         controllers.ScheduledTasksController.upScheduledTasks(request: Request)
+POST        /job/findScheduledTasksById                   controllers.ScheduledTasksController.findScheduledTasksById(request: Request)
+POST        /job/findScheduledTasks                       controllers.ScheduledTasksController.findScheduledTasks(request: Request)
+POST        /job/pagedList                                controllers.ScheduledTasksController.pagedList(request: Request)
+
+
+
+

@@ -29,9 +29,10 @@ public class SystemConfigService {
         if (s == null) {
             throw new RuntimeException("配置项 [" + key + "] 未找到");
         }
+        String values = s.getValue().toString();
         // 3. 查询到数据后写入 Redis
-        redisService.setValue(key, s.getValue());
-        return s.getValue();
+        redisService.setValue(key, values);
+        return values;
     }
 
 

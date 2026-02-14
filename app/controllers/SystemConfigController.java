@@ -10,7 +10,7 @@ import play.mvc.Result;
 
 public class SystemConfigController extends Controller {
 
-    private static final Logger.ALogger logger1 = Logger.of(SystemConfigController.class);
+    private static final Logger.ALogger logger = Logger.of(SystemConfigController.class);
 
     /**
      * 创建系统配置信息
@@ -18,7 +18,7 @@ public class SystemConfigController extends Controller {
      * @return
      */
     public Result saveOrUpdateSystemConfig(Http.Request request) {
-        logger1.info("创建系统配置信息");
+        logger.info("创建系统配置信息");
         SystemConfig sc = Json.fromJson(request.body().asJson(), SystemConfig.class);
         SystemConfig systemConfig = SystemConfig.find.query().where().eq("key", sc.getKey()).findOne();
         if (systemConfig != null) {

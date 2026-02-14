@@ -1,9 +1,7 @@
 package models;
 
 import io.ebean.Model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "scheduled_tasks")
@@ -12,48 +10,53 @@ public class ScheduledTask extends Model {
     public static final io.ebean.Finder<Long, ScheduledTask> find = new io.ebean.Finder<>(ScheduledTask.class);
 
     @Id
-    private Long id;
+    public Long id;
 
     // 任务名称
-    private String name;
+    public String name;
 
-    // 资源库ID（关联CmsConfig的ID）
-    private Long resourceId;
+    // 资源库ID（关联DataSource的ID）
+    public Long resourceId;
 
     // 采集类型 (天,周,全部)
-    private String collectionType;
+    public String collectionType;
 
     // 采集时间间隔数值
-    private Integer intervalValue;
+    public Integer intervalValue;
 
     // 采集时间间隔单位 (分钟,小时,天)
-    private String intervalUnit;
+    public String intervalUnit;
 
     // 任务状态
-    private String status;
+    public String status;
 
     // Cron表达式
-    private String cronExpression;
+    public String cronExpression;
 
     // 任务类名（需要执行的任务类的全限定名）
-    private String taskClass;
+    public String taskClass;
 
     // 是否启用
-    private boolean enabled;
+    public boolean enabled;
 
     // 上次执行时间（时间戳）
-    private Long lastExecutionTime;
+    public Long lastExecutionTime;
 
     // 下次执行时间（时间戳）
-    private Long nextExecutionTime;
+    public Long nextExecutionTime;
 
     // 创建时间
-    private Long createdAt;
+    public Long createdAt;
 
     // 更新时间
-    private Long updatedAt;
+    public Long updatedAt;
     // 任务执行结果信息
-    private String executionResult;
+    public String executionResult;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resource_id", referencedColumnName = "id")
+    public DataSource dataSource;
+
 
     // Getters and Setters
     public Long getId() {
@@ -175,4 +178,14 @@ public class ScheduledTask extends Model {
     public void setExecutionResult(String executionResult) {
         this.executionResult = executionResult;
     }
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+
 }

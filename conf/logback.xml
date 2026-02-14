@@ -93,8 +93,8 @@
     <logger name="play" level="INFO"/>
     <logger name="application" level="INFO"/>
     <!-- 输出 Ebean 的 SQL 到控制台 -->
-    <logger name="io.ebean.SQL" level="INFO"/>
-    <logger name="io.ebean.TXN" level="INFO"/>
+    <logger name="io.ebean.SQL" level="DEBUG"/>
+    <logger name="io.ebean.TXN" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="ASYNC_STDOUT"/>

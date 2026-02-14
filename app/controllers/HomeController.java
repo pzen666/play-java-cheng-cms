@@ -3,11 +3,9 @@ package controllers;
 import com.google.inject.Inject;
 import entity.result.Results;
 import models.User;
-import play.api.mvc.ControllerComponents;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
 
 import java.util.List;
 

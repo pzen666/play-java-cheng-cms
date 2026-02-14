@@ -1,6 +1,5 @@
-package filters;
+package actions.filters;
 
-import actions.filters.AuthenticationFilter;
 import play.http.DefaultHttpFilters;
 
 import javax.inject.Inject;
